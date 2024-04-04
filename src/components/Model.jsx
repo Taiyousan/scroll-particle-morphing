@@ -4,7 +4,7 @@ import { useGLTF } from "@react-three/drei";
 import { useSpring, animated } from "@react-spring/three";
 
 export default function Model() {
-  let model = useGLTF(`models/model.glb`);
+  let model = useGLTF(`models/models.glb`);
 
   const [active, setActive] = useState(false);
   const { scale } = useSpring({

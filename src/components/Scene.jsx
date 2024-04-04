@@ -23,7 +23,7 @@ export default function Scene() {
       <directionalLight intensity={0.5} position={[10, 15, 10]} />
       <Environment preset="city" />
       <CameraControls ref={context.cameraControlsRef} />
-      <ContactShadows
+      {/* <ContactShadows
         rotation-x={Math.PI / 2}
         position={[0, -1, 0]}
         opacity={0.5}
@@ -31,7 +31,7 @@ export default function Scene() {
         height={10}
         blur={0.5}
         far={10}
-      />
+      /> */}
 
       <Center>
         <Suspense
