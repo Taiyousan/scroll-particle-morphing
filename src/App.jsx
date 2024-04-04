@@ -18,6 +18,7 @@ export default function CanvasContent() {
           far: 200,
           position: [4, 2, 25],
         }}
+        style={{ pointerEvents: "none" }} // Désactive les événements de la souris
       >
         <Scene />
       </Canvas>

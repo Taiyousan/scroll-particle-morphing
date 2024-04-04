@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useSpring, animated } from "@react-spring/three";
 import * as THREE from "three";
+import { useControls, folder } from "leva";
 
 // import shaders
 import particlesVertexShader from "../shaders/particles/vertex.glsl";
@@ -29,6 +30,13 @@ export default function Model() {
   useEffect(() => {
     setActive(true);
   }, []);
+
+  // controls
+  // const [{ uProgress }, set] = useControls(() => ({ uProgress: {
+  //   value: 0,
+  //   min: 0,
+  //   max:1
+  // } }));
 
   useEffect(() => {
     particles = {};
