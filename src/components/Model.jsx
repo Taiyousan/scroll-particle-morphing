@@ -20,7 +20,7 @@ export default function Model() {
 
   let particles = null;
   const [particlesObj, setParticlesObj] = useState({});
-  const [scrollY, setScrollY] = useState(0);
+  const [scrollY, setScrollY] = useState(window.scrollY);
 
   const [active, setActive] = useState(false);
   const { scale } = useSpring({
