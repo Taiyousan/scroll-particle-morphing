@@ -20,6 +20,7 @@ export default function Model() {
 
   let particles = null;
   const [particlesObj, setParticlesObj] = useState({});
+  const [scrollY, setScrollY] = useState(0);
 
   const [active, setActive] = useState(false);
   const { scale } = useSpring({
@@ -105,6 +106,29 @@ export default function Model() {
 
     setParticlesObj(particles);
   }, []);
+
+  const handleScroll = () => {
+    console.log("scroll Y", window.scrollY);
+    setScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (particlesObj && particlesObj.material) {
+      const scrollHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const uScrollTime = scrollY / scrollHeight;
+      particlesObj.material.uniforms.uProgress.value = uScrollTime;
+      particlesObj.material.needsUpdate = true;
+    }
+  }, [scrollY, particlesObj]);
 
   return (
     <animated.group scale={scale}>
